@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
+    
+    {% extends "base.html" %}
+
+    {% block content %}
     <h1>Dice Roller</h1>
+    <p>
+        <a href = "{% url 'Dice Roller' %}"><button>Refresh</button></a>
+    </p>
+    <hr>
     <p>
         <button>d4</button>
         <br>{{ d4 }}
@@ -29,4 +37,5 @@
         <button>d100</button>
         <br>{{ d100 }}
     </p>
+    {% endblock %}
 </html>

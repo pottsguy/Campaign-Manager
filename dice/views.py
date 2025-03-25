@@ -1,12 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import TemplateView
 from random import randrange
 
 def home_page_view(request):
-    return HttpResponse(
-        "<h1>Welcome to Guy's Website</h1>"
-        "<button>Dice Roller</button>"
-        )
+    return render(request, "home.html")
 
 def dice_roller_view(request):
     context = {
