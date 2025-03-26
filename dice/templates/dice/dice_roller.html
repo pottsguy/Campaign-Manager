@@ -1,41 +1,91 @@
 <!DOCTYPE html>
 <html>
-    
     {% extends "base.html" %}
-
+    {% load static %}
     {% block content %}
+    
     <h1>Dice Roller</h1>
     <p>
         <a href = "{% url 'Dice Roller' %}"><button>Refresh</button></a>
     </p>
     <hr>
-    <p>
-        <button>d4</button>
-        <br>{{ d4 }}
-    </p>
-    <p>
-        <button>d6</button>
-        <br>{{ d6 }}
-    </p>
-    <p>
-        <button>d8</button>
-        <br>{{ d8 }}
-    </p>
-    <p>
-        <button>d10</button>
-        <br>{{ d10 }}
-    </p>
-    <p>
-        <button>d12</button>
-        <br>{{ d12 }}
-    </p>
-    <p>
-        <button>d20</button>
-        <br>{{ d20 }}
-    </p>
-    <p>
-        <button>d100</button>
-        <br>{{ d100 }}
-    </p>
+
+    <div>
+        <button onclick="d4()">d4</button>
+        <p id="d4Result"></p>
+        <script>
+            function d4() {
+                const d4Result = Math.floor(Math.random() * 4) + 1;
+                document.getElementById('d4Result').innerText = `${d4Result}`;
+            }
+        </script>
+    </div>
+
+    <div>
+        <button onclick="d6()">d6</button>
+        <p id="d6Result"></p>
+        <script>
+            function d6() {
+                const d6Result = Math.floor(Math.random() * 6) + 1;
+                document.getElementById('d6Result').innerText = `${d6Result}`;
+            }
+        </script>
+    </div>
+
+    <div>
+        <button onclick="d8()">d8</button>
+        <p id="d8Result"></p>
+        <script>
+            function d8() {
+                const d8Result = Math.floor(Math.random() * 8) + 1;
+                document.getElementById('d8Result').innerText = `${d8Result}`;
+            }
+        </script>
+    </div>
+
+    <div>
+        <button onclick="d10()">d10</button>
+        <p id="d10Result"></p>
+        <script>
+            function d10() {
+                const d10Result = Math.floor(Math.random() * 10) + 1;
+                document.getElementById('d10Result').innerText = `${d10Result}`;
+            }
+        </script>
+    </div>
+
+    <div>
+        <button onclick="d12()">d12</button>
+        <p id="d12Result"></p>
+        <script>
+            function d12() {
+                const d12Result = Math.floor(Math.random() * 12) + 1;
+                document.getElementById('d12Result').innerText = `${d12Result}`;
+            }
+        </script>
+    </div>
+
+    <div>
+        <button onclick="d20()">d20</button>
+        <p id="d20Result"></p>
+        <script>
+            function d20() {
+                const d20Result = Math.floor(Math.random() * 20) + 1;
+                document.getElementById('d20Result').innerText = `${d20Result}`;
+            }
+        </script>
+    </div>
+
+    <div>
+        <button onclick="d100()">d100</button>
+        <p id="d100Result"></p>
+        <script>
+            function d100() {
+                const d100Result = Math.floor(Math.random() * 100) + 1;
+                document.getElementById('d100Result').innerText = `${d100Result}`;
+            }
+        </script>
+    </div>
+
     {% endblock %}
 </html>
