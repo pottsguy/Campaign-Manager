@@ -1,97 +1,90 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!-<![endif]-->
 <html>
-    {% extends "base.html" %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dice Roller</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <script src="../../static/roll.js" async defer></script>
+        {% extends "base.html" %}
     {% load static %}
     {% block content %}
-    
-    <h1>Dice Roller</h1>
-    <p>
+        <h1>Dice Roller</h1>
         <a href = "{% url 'Dice Roller' %}"><button>Refresh</button></a>
-    </p>
-    <hr>
-
-    <script>
-        function roll(max, results, rollDisplayId, totalDisplayId) {
-            results.push(Math.floor(Math.random() * max) + 1);
-            document.getElementById(rollDisplayId).innerText = `${results}`;
-            let total = 0;
-            for (i=0 ; i<results.length ; i++) {
-                total = total + results[i];
-            }
-            document.getElementById(totalDisplayId).innerText = `${total}`
-            return;
-        }
-    </script>
-
-    <div>
-        <button onclick="roll(4, d4Results, 'd4RollsDisplay', 'd4TotalDisplay')">d4</button>
-        <p id="d4RollsDisplay">Rolls</p>
-        <p id="d4TotalDisplay">Total</p>
-        <script>
-            const d4Results = [];
-        </script>
         <hr>
-    </div>
+        <div style="background-color: lightblue;">
+            <button onclick="roll(4, d4Results, 'd4RollsDisplay', 'd4TotalDisplay')">d4</button>
+            <p id="d4RollsDisplay">Rolls</p>
+            <p id="d4TotalDisplay">Total</p>
+            <script>
+                const d4Results = [];
+            </script>
+        </div>
 
-    <div>
-        <button onclick="roll(6, d6Results, 'd6RollsDisplay', 'd6TotalDisplay')">d6</button>
-        <p id="d6RollsDisplay">Rolls</p>
-        <p id="d6TotalDisplay">Total</p>
-        <script>
-            const d6Results = [];
-        </script>
-        <hr>
-    </div>
+        <div style="background-color: lightgoldenrodyellow;">
+            <button onclick="roll(6, d6Results, 'd6RollsDisplay', 'd6TotalDisplay')">d6</button>
+            <p id="d6RollsDisplay">Rolls</p>
+            <p id="d6TotalDisplay">Total</p>
+            <script>
+                const d6Results = [];
+            </script>
+        </div>
 
-    <div>
-        <button onclick="roll(8, d8Results, 'd8RollsDisplay', 'd8TotalDisplay')">d8</button>
-        <p id="d8RollsDisplay">Rolls</p>
-        <p id="d8TotalDisplay">Total</p>
-        <script>
-            const d8Results = [];
-        </script>
-        <hr>
-    </div>
+        <div style="background-color: lightblue;">
+            <button onclick="roll(8, d8Results, 'd8RollsDisplay', 'd8TotalDisplay')">d8</button>
+            <p id="d8RollsDisplay">Rolls</p>
+            <p id="d8TotalDisplay">Total</p>
+            <script>
+                const d8Results = [];
+            </script>
+        </div>
 
-    <div>
-        <button onclick="roll(10, d10Results, 'd10RollsDisplay', 'd10TotalDisplay')">d10</button>
-        <p id="d10RollsDisplay">Rolls</p>
-        <p id="d10TotalDisplay">Total</p>
-        <script>
-            const d10Results = [];
-        </script>
-        <hr>
-    </div>
+        <div style="background-color: lightgoldenrodyellow">
+            <button onclick="roll(10, d10Results, 'd10RollsDisplay', 'd10TotalDisplay')">d10</button>
+            <p id="d10RollsDisplay">Rolls</p>
+            <p id="d10TotalDisplay">Total</p>
+            <script>
+                const d10Results = [];
+            </script>
+        </div>
 
-    <div>
-        <button onclick="roll(12, d12Results, 'd12RollsDisplay', 'd12TotalDisplay')">d12</button>
-        <p id="d12RollsDisplay">Rolls</p>
-        <p id="d12TotalDisplay">Total</p>
-        <script>
-            const d12Results = [];
-        </script>
-        <hr>
-    </div>
+        <div style="background-color: lightblue;">
+            <button onclick="roll(12, d12Results, 'd12RollsDisplay', 'd12TotalDisplay')">d12</button>
+            <p id="d12RollsDisplay">Rolls</p>
+            <p id="d12TotalDisplay">Total</p>
+            <script>
+                const d12Results = [];
+            </script>
+        </div>
 
-    <div>
-        <button onclick="roll(20, d20Results, 'd20RollsDisplay', 'd20TotalDisplay')">d20</button>
-        <p id="d20RollsDisplay">Rolls</p>
-        <p id="d20TotalDisplay">Total</p>
-        <script>
-            const d20Results = [];
-        </script>
-        <hr>
-    </div>
+        <div style="background-color: lightgoldenrodyellow">
+            <button onclick="roll(20, d20Results, 'd20RollsDisplay', 'd20TotalDisplay')">d20</button>
+            <p id="d20RollsDisplay">Rolls</p>
+            <p id="d20TotalDisplay">Total</p>
+            <script>
+                const d20Results = [];
+            </script>
+        </div>
 
-    <div>
-        <button onclick="roll(100, d100Results, 'd100RollsDisplay', 'd100TotalDisplay')">d100</button>
-        <p id="d100RollsDisplay">Rolls</p>
-        <p id="d100TotalDisplay">Total</p>
-        <script>
-            const d100Results = [];
-        </script>
-        <hr>
-    </div>
-
+        <div style="background-color: lightblue;">
+            <button onclick="roll(100, d100Results, 'd100RollsDisplay', 'd100TotalDisplay')">d100</button>
+            <p id="d100RollsDisplay">Rolls</p>
+            <p id="d100TotalDisplay">Total</p>
+            <script>
+                const d100Results = [];
+            </script>
+        </div>
     {% endblock %}
+    </body>
 </html>
