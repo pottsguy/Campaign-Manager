@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!-<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -20,16 +20,11 @@
         <script src="" async defer></script>
         {% extends "base.html" %}
         {% block content %}
-        <h1>Campaign Diary</h1>
-        {% for post in posts %}
+        <h1>{{ post.title }}</h1>
+        <h2>Session {{ post.session }} of {{ post.campaign }} in {{ post.system }}</h2>
         <hr>
-        <div class="post-entry">
-            <h3>Session {{ post.session }} of {{ post.campaign }}, in {{ post.system }}</h3>
-            <a href="{% url 'Individual Post' post.pk %}"><h2>{{ post.title }}</h2></a>
-            <h3>By {{ post.author }}</h3>
-            <p>{{ post.text }}</p>
-        </div>
-        {% endfor %}
+        <p>{{ post.text }}</p>
+        <h3>By {{ post.author }}</h3>
         {% endblock %}
     </body>
 </html>
