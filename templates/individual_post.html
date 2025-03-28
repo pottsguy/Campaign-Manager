@@ -21,8 +21,9 @@
         {% extends "base.html" %}
         {% block content %}
         <h1>{{ post.title }}</h1>
-        <h2>Session {{ post.session }} of {{ post.campaign }} in {{ post.system }}</h2>
+        <button onclick="history.back()">Back</button>
         <hr>
+        <h2>Session {{ post.session }} of {{ post.campaign }} in {{ post.system }}</h2>
         <p>{{ post.text }}</p>
         <h3>By {{ post.author }}</h3>
         {% endblock %}

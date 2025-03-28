@@ -23,67 +23,74 @@
         <h1>Dice Roller</h1>
         <a href = "{% url 'Dice Roller' %}"><button>Refresh</button></a>
         <hr>
-        <div style="background-color: lightblue;">
+        <div>
             <button onclick="roll(4, d4Results, 'd4RollsDisplay', 'd4TotalDisplay')">d4</button>
-            <p id="d4RollsDisplay">Rolls</p>
-            <p id="d4TotalDisplay">Total</p>
+            <div id="d4RollsDisplay">Rolls</div>
+            Total<div id="d4TotalDisplay"><br></div>
             <script>
                 const d4Results = [];
             </script>
+            <br>
         </div>
 
-        <div style="background-color: lightgoldenrodyellow;">
+        <div>
             <button onclick="roll(6, d6Results, 'd6RollsDisplay', 'd6TotalDisplay')">d6</button>
-            <p id="d6RollsDisplay">Rolls</p>
-            <p id="d6TotalDisplay">Total</p>
+            <div id="d6RollsDisplay">Rolls</div>
+            Total<div id="d6TotalDisplay"><br></div>
             <script>
                 const d6Results = [];
             </script>
+            <br>
         </div>
 
-        <div style="background-color: lightblue;">
+        <div>
             <button onclick="roll(8, d8Results, 'd8RollsDisplay', 'd8TotalDisplay')">d8</button>
-            <p id="d8RollsDisplay">Rolls</p>
-            <p id="d8TotalDisplay">Total</p>
+            <div id="d8RollsDisplay">Rolls</div>
+            Total<div id="d8TotalDisplay"><br></div>
             <script>
                 const d8Results = [];
             </script>
+            <br>
         </div>
 
-        <div style="background-color: lightgoldenrodyellow">
+        <div>
             <button onclick="roll(10, d10Results, 'd10RollsDisplay', 'd10TotalDisplay')">d10</button>
-            <p id="d10RollsDisplay">Rolls</p>
-            <p id="d10TotalDisplay">Total</p>
+            <div id="d10RollsDisplay">Rolls</div>
+            Total<div id="d10TotalDisplay"><br></div>
             <script>
                 const d10Results = [];
             </script>
+            <br>
         </div>
 
-        <div style="background-color: lightblue;">
+        <div>
             <button onclick="roll(12, d12Results, 'd12RollsDisplay', 'd12TotalDisplay')">d12</button>
-            <p id="d12RollsDisplay">Rolls</p>
-            <p id="d12TotalDisplay">Total</p>
+            <div id="d12RollsDisplay">Rolls</div>
+            Total<div id="d12TotalDisplay"><br></div>
             <script>
                 const d12Results = [];
             </script>
+            <br>
         </div>
 
-        <div style="background-color: lightgoldenrodyellow">
+        <div>
             <button onclick="roll(20, d20Results, 'd20RollsDisplay', 'd20TotalDisplay')">d20</button>
-            <p id="d20RollsDisplay">Rolls</p>
-            <p id="d20TotalDisplay">Total</p>
+            <div id="d20RollsDisplay">Rolls</div>
+            Total<div id="d20TotalDisplay"><br></div>
             <script>
                 const d20Results = [];
             </script>
+            <br>
         </div>
 
-        <div style="background-color: lightblue;">
+        <div>
             <button onclick="roll(100, d100Results, 'd100RollsDisplay', 'd100TotalDisplay')">d100</button>
-            <p id="d100RollsDisplay">Rolls</p>
-            <p id="d100TotalDisplay">Total</p>
+            <div id="d100RollsDisplay">Rolls</div>
+            Total<div id="d100TotalDisplay"><br></div>
             <script>
                 const d100Results = [];
             </script>
+            <br>
         </div>
     {% endblock %}
     </body>

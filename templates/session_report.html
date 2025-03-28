@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Campaign Diary</title>
+        <title>Upload Session Report</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -15,21 +15,18 @@
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
+        <![endif]-->        
         <script src="" async defer></script>
         {% extends "base.html" %}
         {% block content %}
-        <h1>Campaign Diary</h1>
-        {% for post in posts %}
+        <h1>New Session Report</h1>
+        <button onclick="history.back()">Back</button>
         <hr>
-        <div class="post-entry">
-            <h3>Session {{ post.session }} of {{ post.campaign }}, in {{ post.system }}</h3>
-            <a href="{% url 'Individual Post' post.pk %}"><h2>{{ post.title }}</h2></a>
-            <h3>By {{ post.author }}</h3>
-            <p>{{ post.text }}</p>
-        </div>
-        {% endfor %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Upload">
+        </form>
         {% endblock %}
     </body>
 </html>
