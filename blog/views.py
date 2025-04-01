@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView
 from django.views.generic.edit import CreateView
 from.models import Post
 
@@ -30,3 +30,8 @@ class UploadReportView(CreateView):
     model = Post
     template_name = "session_report.html"
     fields = ['title', 'author', 'campaign', 'session', 'system', 'text']
+
+class UpdatePostView(UpdateView):
+    model = Post
+    template_name = 'edit_post.html'
+    fields = ['title', 'campaign', 'session', 'system', 'text']

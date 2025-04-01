@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Campaign Diary</title>
+        <title>Edit Post</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -20,13 +20,14 @@
         <script src="" async defer></script>
         {% extends "base.html" %}
         {% block content %}
-        <h1>{{ post.title }}</h1>
+        <h1>Edit {{ post.title }}</h1>
         <button onclick="history.back()">Back</button>
         <hr>
-        <h2>Session {{ post.session }} of {{ post.campaign }} in {{ post.system }}</h2>
-        <p>{{ post.text }}</p>
-        <h3>By {{ post.author }}</h3>
-        <a href="{% url 'Edit Post' post.pk %}"><button>Edit</button></a>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Update">
+        </form>
         {% endblock %}
     </body>
 </html>
