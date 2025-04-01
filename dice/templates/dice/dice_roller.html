@@ -21,7 +21,7 @@
     {% load static %}
     {% block content %}
         <h1>Dice Roller</h1>
-        <a href = "{% url 'Dice Roller' %}"><button>Refresh</button></a>
+        <button onclick="window.location.reload()">Refresh</button>
         <hr>
         <div>
             <button onclick="roll(4, d4Results, 'd4RollsDisplay', 'd4TotalDisplay')">d4</button>

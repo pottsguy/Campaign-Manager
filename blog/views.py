@@ -7,6 +7,9 @@ from.models import Post
 def home_page_view(request):
     return render(request, "home.html")
 
+def accounts_page_view(request):
+    return render(request, "login.html")
+
 class CampaignDiaryView(ListView):
     model = Post
     template_name = "campaign_diary.html"
