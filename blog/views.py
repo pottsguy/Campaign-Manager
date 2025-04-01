@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 from.models import Post
 
 def home_page_view(request):
@@ -35,3 +36,8 @@ class UpdatePostView(UpdateView):
     model = Post
     template_name = 'edit_post.html'
     fields = ['title', 'campaign', 'session', 'system', 'text']
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = "delete_post.html"
+    success_url = reverse_lazy("Campaign Diary")
