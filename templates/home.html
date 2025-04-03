@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!-<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,21 +8,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
         <script src="" async defer></script>
         {% extends "base.html" %}
         {% block content %}
-        <h1>Armchair Bugbear</h1>
-        <hr>
-        <p>Click on 'Dice Roller' to roll some dice, or click on 'Campaign Diary' to share your RPG, solo RPG and wargame session reports.</p>
-        <ul>
-            <li>Keep your campaign titles consistent across sessions. If you start a new campaign, give it a new name.</li>
-            <li>For game system, use the full name of the game, followed by #E for edition (if necessary). For example: Dungeons & Dragons 5E.</li>
-            <li>Keep the feed tidy. Don't dump your backlog all at once, don't spam sessions like crazy.</li>
-        </ul>
+        <div>
+            <h1>Armchair Bugbear</h1>
+            <hr>
+        </div>
+        <div>
+            <p>Click on 'Dice Roller' to roll some dice, or click on 'Campaign Diary' to share your RPG, solo RPG and wargame session reports.</p>
+            <ul>
+                <li>Keep your campaign titles consistent across sessions. If you start a new campaign, give it a new name.</li>
+                <li>For game system, use the full name of the game, followed by #E for edition (if necessary). For example: Dungeons & Dragons 5E.</li>
+                <li>Keep the feed tidy. Don't dump your backlog all at once, don't spam sessions like crazy.</li>
+            </ul>
+        </div>
         {% endblock %}
     </body>
 </html>

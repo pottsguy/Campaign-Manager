@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,25 +6,22 @@
         <title>Delete Post</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="" async defer></script>
         {% extends "base.html" %}
         {% block content %}
-        <h1>Delete {{ post.title }}</h1>
-        <button onclick="history.back()">Back</button>
-        <hr>
-
-        <form action="" method="post">
-            {% csrf_token %}
-            <p>Are you sure you want to delete {{ post.title }}, session {{ post.session }} of {{ post.campaign }}?</p>
-            <button type="submit">Delete</button>
-        </form>
+        <div>
+            <h1>Delete {{ post.title }}</h1>
+            <button onclick="history.back()">Back</button>
+            <hr>
+        </div>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to delete {{ post.title }}, session {{ post.session }} of {{ post.campaign }}?</p>
+                <button type="submit">Delete</button>
+            </form>
+        </div>
         {% endblock %}
     </body>
 </html>

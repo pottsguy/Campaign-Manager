@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-)7!e%!clt+84qh4_d(gt)0z+b3)^0fs7%%it6l3(fldy4jl=24
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "100.103.139.6", 'mars']
 
 
 # Application definition
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'blog',
     'accounts',
     'generator',
+    'battle',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +118,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -125,7 +126,10 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-STATICFILES_DIRS = [BASE_DIR / "static"]
+# https://docs.djangoproject.com/en/dev/ref/settings/#staticfiles-dirs
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

@@ -3,24 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Upload Session Report</title>
+        <title>Battle</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         {% extends "base.html" %}
         {% block content %}
+        <script src="/static/battle.js" type="text/javascript"></script>
         <div>
-            <h1>New Session Report</h1>
-            <button onclick="history.back()">Back</button>
+            <h1>Battle</h1>
+            <button onclick="window.location.reload()">Refresh</button>
             <hr>
         </div>
         <div>
-            <form action="" method="post">
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Upload">
-            </form>
+            <button onclick="hello_world()">Click for Hello World</button>
         </div>
         {% endblock %}
     </body>
