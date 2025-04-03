@@ -15,9 +15,13 @@
             <h1>Battle</h1>
             <button onclick="window.location.reload()">Refresh</button>
             <hr>
-        </div>
         <div>
-            <button onclick="hello_world()">Click for Hello World</button>
+            <label for="nameInput">New Combatant Name</label><br>
+            <input id="nameInput">
+            <button onclick="updateNameDisplay()">Add Combatant</button>
+            <ul>
+                <li id="nameList"></li>
+            </ul>
         </div>
         {% endblock %}
     </body>
