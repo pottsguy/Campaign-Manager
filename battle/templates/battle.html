@@ -11,21 +11,58 @@
         {% extends "base.html" %}
         {% block content %}
         <script src="/static/battle.js" type="text/javascript"></script>
+        <script src="/static/roll.js"></script>
         <div>
             <h1>Battle</h1>
             <button onclick="window.location.reload()">Refresh</button>
             <hr>
         </div>
-        <div>
-            <label for="nameInput">New Combatant Name</label>
-            <input id="nameInput">
-            <label for="creationNotes">Notes</label>
-            <input id="creationNotes">
-            <button onclick="addName()">Add Combatant</button>
-            <ul>
-                <li id="nameList"></li>
-            </ul>
-        </div>
+        <div class="row">
+            <div class="column">
+                <h2>Battlefield</h2>
+                <button onclick="window.location.reload()">Refresh</button><hr>
+                <label for="nameInput">New Combatant Name</label>
+                <input id="nameInput">
+                <label for="creationNotes">Notes</label>
+                <input id="creationNotes">
+                <button onclick="addName()">Add Combatant</button>
+                <ul>
+                    <li id="nameList"></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Dice</h2>
+                <button onclick="clearRolls(d4Results, d6Results, d8Results, d10Results, d12Results, d20Results, d100Results)">Clear</button>
+                <hr>
+                <button onclick="roll(4, d4Results, 'd4RollsDisplay', 'd4TotalDisplay')">d4</button>
+                <div id="d4RollsDisplay">Rolls</div>
+                <div id="d4TotalDisplay">Total</div>
+                <script>const d4Results = [];</script>
+                <button onclick="roll(6, d6Results, 'd6RollsDisplay', 'd6TotalDisplay')">d6</button>
+                <div id="d6RollsDisplay">Rolls</div>
+                <div id="d6TotalDisplay">Total</div>
+                <script>const d6Results = [];</script>
+                <button onclick="roll(8, d8Results, 'd8RollsDisplay', 'd8TotalDisplay')">d8</button>
+                <div id="d8RollsDisplay">Rolls</div>
+                <div id="d8TotalDisplay">Total</div>
+                <script>const d8Results = [];</script>
+                <button onclick="roll(10, d10Results, 'd10RollsDisplay', 'd10TotalDisplay')">d10</button>
+                <div id="d10RollsDisplay">Rolls</div>
+                <div id="d10TotalDisplay">Total</div>
+                <script>const d10Results = [];</script>
+                <button onclick="roll(12, d12Results, 'd12RollsDisplay', 'd12TotalDisplay')">d12</button>
+                <div id="d12RollsDisplay">Rolls</div>
+                <div id="d12TotalDisplay">Total</div>
+                <script>const d12Results = [];</script>
+                <button onclick="roll(20, d20Results, 'd20RollsDisplay', 'd20TotalDisplay')">d20</button>
+                <div id="d20RollsDisplay">Rolls</div>
+                <div id="d20TotalDisplay">Total</div>
+                <script>const d20Results = [];</script>
+                <button onclick="roll(100, d100Results, 'd100RollsDisplay', 'd100TotalDisplay')">d100</button>
+                <div id="d100RollsDisplay">Rolls</div>
+                <div id="d100TotalDisplay">Total</div>
+                <script>const d100Results = [];</script>
+            </div>
         {% endblock %}
     </body>
 </html>

@@ -8,7 +8,7 @@ function addName() {
     const notes = document.createElement('input'); // returns a https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement
     const newName = document.createTextNode(document.getElementById('nameInput').value); // returns a https://developer.mozilla.org/en-US/docs/Web/API/Text
     notes.value = document.getElementById('creationNotes').value;
-    notes.style.width = '450px';
+    notes.style.width = '400px';
     // const creationNotes = document.createTextNode(document.getElementById('creationNotes').value);
     li.appendChild(newName);
     document.getElementById("nameList").appendChild(li);
