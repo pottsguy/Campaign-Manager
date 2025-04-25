@@ -1,5 +1,9 @@
 const names = []
 
+function instructions() {
+    alert("The battlefield section is to keep track of your combatants (and other entities).\n\nType the combatant's name and click 'add combatant' to add it to the battlefield.\n\nUse the notes box to keep track of stats, etc., and change them at any time.\n\nReorder combatants by dragging their names.")
+}
+
 function addName() {
     const li = document.createElement("li"); // returns a https://developer.mozilla.org/en-US/docs/Web/API/HTMLLIElement
     li.setAttribute('draggable', 'true');
