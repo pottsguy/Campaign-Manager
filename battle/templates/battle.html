@@ -27,7 +27,7 @@
                 <input id="creationNotes">
                 <button onclick="addName()">Add Combatant</button>
                 <ul>
-                    <li id="nameList"></li>
+                    <li id="nameList" draggable="true" ondragend="dragEnd()" ondragover="dragOver(event)" ondragstart="dragStart(event)"></li>
                 </ul>
             </div>
             <div class="column">
@@ -63,6 +63,16 @@
                 <div id="d100TotalDisplay">Total</div>
                 <script>const d100Results = [];</script>
             </div>
+
+
+            <!-- THIS IS A TEST FOR THE DRAGGABLE LIST -->
+             <div>
+                <ul>
+                    <li id="nameList" draggable="true" ondragend="dragEnd()" ondragover="dragOver(event)" ondragstart="dragStart(event)">Apples</li>
+                    <li id="nameList" draggable="true" ondragend="dragEnd()" ondragover="dragOver(event)" ondragstart="dragStart(event)">Oranges</li>
+                    <li id="nameList" draggable="true" ondragend="dragEnd()" ondragover="dragOver(event)" ondragstart="dragStart(event)">Pears</li>
+                </ul>
+             </div>
         {% endblock %}
     </body>
 </html>
