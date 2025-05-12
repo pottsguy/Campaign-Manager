@@ -17,6 +17,11 @@
             <button>Join Campaign</button>
             <hr>
         </div>
+        <div>
+            {% for campaign in campaign_list %}
+            <p>{{ campaign.name }}</p>
+            {% endfor %}
+        </div>
         {% endblock %}
     </body>
 </html>

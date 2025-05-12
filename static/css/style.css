@@ -18,6 +18,9 @@ button:hover {
     transition-duration: 0.5s;
     background-color: rgb(235, 241, 245);
 }
+select {
+    background-color: white;
+}
 hr {
     border-top: rgb(235, 241, 245);
 }
