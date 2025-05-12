@@ -25,4 +25,5 @@ urlpatterns = [
     path('battle/', include('battle.urls')),
     path('', include("dice.urls")),
     path('', include("blog.urls")),
+    path('campaigns/', include("accounts.urls"))
 ]

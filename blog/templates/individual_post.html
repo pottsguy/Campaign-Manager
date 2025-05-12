@@ -12,13 +12,15 @@
         {% block content %}
         <div>
             <h1>{{ post.title }}</h1>
-            <button onclick="history.back()">Back</button>
+            <a href="{% url 'Campaign Diary' %}"><button>Back</button></a>
             <hr>
         </div>
         <div>
-            <h2>Session {{ post.session }} of {{ post.campaign }} in {{ post.system }}</h2>
+            <h2>{{ post.title }}</h2>
+            <h3>Session {{ post.session }} of {{ post.campaign }}</h3>
             <p>{{ post.text }}</p>
             <h3>By {{ post.author }}</h3>
+            <p>{{ post.date }}</p>
             <a href="{% url 'Edit Post' post.pk %}"><button>Edit Post</button></a>
             <a href="{% url 'Delete Post' post.pk %}"><button>Delete Post</button></a>
         </div>
