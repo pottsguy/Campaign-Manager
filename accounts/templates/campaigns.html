@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Campaigns</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -13,13 +13,21 @@
         {% block content %}
         <div>
             <h1>Campaigns</h1>
-            <button>Host Campaign</button>
-            <button>Join Campaign</button>
+            <a href="{% url 'New Campaign' %}"><button>Host Campaign</button></a>
+            <a href="{% url 'Join Campaign' %}"><button>Join Campaign</button></a>
             <hr>
         </div>
         <div>
             {% for campaign in campaign_list %}
-            <p>{{ campaign.name }}</p>
+            <h2>{{ campaign.name }}</h2>
+            <p>{{ campaign.premise }}</p>
+            <h3>{{ campaign.system }}</h3>
+            {% if campaign.host == request.user %}
+                <a href="{% url 'Delete Campaign' campaign.pk %}"><button>Delete Campaign</button></a>
+            {% else %}
+                <a href="{% url 'Leave Campaign' campaign.pk %}"><button>Leave Campaign</button></a>
+                </form>
+            {% endif %}
             {% endfor %}
         </div>
         {% endblock %}

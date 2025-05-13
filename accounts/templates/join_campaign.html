@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Join Campaign</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% extends "base.html" %}
+        {% block content %}
+        <div>
+            <h1>Join Campaign</h1>
+            <button onclick="history.back()">Back</button>
+            <hr>
+        </div>
+        <div>
+            <p>To join a campaign, you need to know the exact name of the campaign, and the campaign's key. Ask the host to send you those details.</p>
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" value="Upload">Join Campaign</button>
+            </form>
+        </div>
+        {% endblock %}
+    </body>
+</html>
