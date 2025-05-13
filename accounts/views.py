@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy, reverse
 from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormView
+from django.views.generic import DetailView
 from blog.models import Campaign
-from .forms import NewCampaignForm, JoinCampaignForm
+from .forms import NewCampaignForm, JoinCampaignForm, EditCampaignForm
 from django.http import Http404, HttpResponseRedirect
 from django.views import View
 from django.shortcuts import get_object_or_404
@@ -66,3 +67,26 @@ class LeaveCampaignView(FormView):
         if self.request.user in campaign.users.all():
             campaign.users.remove(self.request.user)
         return HttpResponseRedirect(self.success_url)
+    
+class EditCampaignView(UpdateView):
+    model = Campaign
+    form_class = EditCampaignForm
+    template_name = 'edit_campaign.html'
+    success_url = reverse_lazy('Campaigns')
+    
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.host != self.request.user:
+            raise Http404("You are not the host of this campaign.")
+        return obj
+    def form_valid(self, form):
+        # Ensure the host remains the same
+        form.instance.host = self.get_object().host
+        return super().form_valid(form)
+    
+class CampaignDetailView(DetailView):
+    model = Campaign
+    template_name = "campaign_detail.html"
+
+def char_sheets_view(request) :
+    return render(request, 'charsheets.html')

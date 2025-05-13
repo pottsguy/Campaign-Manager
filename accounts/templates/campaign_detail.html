@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Campaign Detail</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        {% extends "base.html" %}
+        {% block content %}
+        <div>
+            <h1>{{ campaign.name }}</h1>
+            <a href="{% url 'Campaigns' %}"><button>Back</button></a>
+            <hr>
+        </div>
+        <div>
+            <h3>{{ campaign.system }}</h3>
+            <p>{{ campaign.premise }}</p>
+            <ul>
+                <li>Host: {{ campaign.host.username }}</li>
+                {% for user in campaign.users.all %}
+                    <li>{{ user.username }}</li>
+                {% endfor %}
+            </ul>
+            {% if campaign.host == request.user %}
+            <h3>Campaign key: {{ campaign.key }}</h3>
+            <a href="{% url 'Edit Campaign' campaign.pk %}"><button>Edit Campaign</button></a>
+            <a href="{% url 'Delete Campaign' campaign.pk %}"><button>Delete Campaign</button></a>
+            {% else %}
+                <a href="{% url 'Leave Campaign' campaign.pk %}"><button>Leave Campaign</button></a>
+                </form>
+            {% endif %}
+        </div>
+        {% endblock %}
+    </body>
+</html>

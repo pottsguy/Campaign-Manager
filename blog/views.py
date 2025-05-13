@@ -15,6 +15,7 @@ def accounts_page_view(request):
 class CampaignDiaryView(ListView):
     model = Post
     template_name = "campaign_diary.html"
+    ordering = ['-date']
 
 # def campaign_diary_view(request):
 #     posts = Post.objects.all()

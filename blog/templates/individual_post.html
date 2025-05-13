@@ -21,8 +21,11 @@
             <p>{{ post.text }}</p>
             <h3>By {{ post.author }}</h3>
             <p>{{ post.date }}</p>
+
+            {% if post.author == request.user %}
             <a href="{% url 'Edit Post' post.pk %}"><button>Edit Post</button></a>
             <a href="{% url 'Delete Post' post.pk %}"><button>Delete Post</button></a>
+            {% endif %}
         </div>
         {% endblock %}
     </body>

@@ -14,15 +14,16 @@
             <h1>Campaign Diary</h1>
             <a href="{% url 'Upload Session Report' %}"><button>Upload a Session Report</button></a>
             Filter by Campaign: <select></select>
+            <hr>
         </div>
         {% for post in post_list %}
-        <hr>
         <div class="post-entry">
             <h3>Session {{ post.session }} of {{ post.campaign }}</h3>
             <a href="{% url 'Individual Post' post.pk %}"><h2>{{ post.title }}</h2></a>
             <h3>By {{ post.author }}</h3>
             <p>{{ post.text }}</p>
             <p>{{ post.date }}</p>
+            <hr>
         </div>
         {% endfor %}
         {% endblock %}

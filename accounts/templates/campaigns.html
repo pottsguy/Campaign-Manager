@@ -18,16 +18,14 @@
             <hr>
         </div>
         <div>
+            <p>You must be logged in to create or join a campaign. Click 'Host Campaign' to start a new campaign. To join an existing campaign, ask the host to send you the exact name and key, and click 'Join Campaign'.</p>
+            <hr>
+        </div>
+        <div>
             {% for campaign in campaign_list %}
-            <h2>{{ campaign.name }}</h2>
-            <p>{{ campaign.premise }}</p>
+            <a href="{% url 'Campaign Detail' campaign.pk %}"><h2>{{ campaign.name }}</h2></a>
             <h3>{{ campaign.system }}</h3>
-            {% if campaign.host == request.user %}
-                <a href="{% url 'Delete Campaign' campaign.pk %}"><button>Delete Campaign</button></a>
-            {% else %}
-                <a href="{% url 'Leave Campaign' campaign.pk %}"><button>Leave Campaign</button></a>
-                </form>
-            {% endif %}
+            <hr>
             {% endfor %}
         </div>
         {% endblock %}

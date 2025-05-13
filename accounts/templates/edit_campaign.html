@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Edit Campaign</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        {% extends "base.html" %}
+        {% block content %}
+        <div>
+            <h1>Edit {{ campaign.title }}</h1>
+            <a href="{% url 'Campaigns' %}"><button>Back</button></a>
+            <hr>
+        </div>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" value="Update">Update</button>
+            </form>
+        </div>
+        {% endblock %}
+    </body>
+</html>

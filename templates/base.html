@@ -4,22 +4,25 @@
 </head>
 <header>
     <a href="{% url 'Home Page' %}"><button>Home</button></a>
+    <a href="{% url 'Character Sheets' %}"><button>Character Sheets</button></a>
     <a href="{% url 'Campaign Diary' %}"><button>Campaign Diary</button></a>
     <!-- <a href="{% url 'Dice Roller' %}"><button>Dice Roller</button></a> -->
     <!-- <a href="{% url 'Generators' %}"><button>Generators</button></a> -->
     <a href="{% url 'Battle' %}"><button>Battle</button></a>
     <span class="float_right">
         {% if user.is_authenticated %}
-        Logged in as {{ user.username }}
-        <a href="{% url 'Campaigns' %}"><button>Campaigns</button></a>
-            <form action="{% url 'logout' %}" method="post">
+        <div>
+            Logged in as {{ user.username }}
+            <a href="{% url 'Campaigns' %}"><button>Campaigns</button></a>
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
                 {% csrf_token %}
                 <button class="float_right" type="submit">Log Out</button>
             </form>
-        {% else %}
-        <a href="{% url 'Sign Up' %}"><button>Sign Up</button></a>
-        <a href="{% url 'Account' %}"><button>Log In</button></a>
-        {% endif %}
+            {% else %}
+            <a href="{% url 'Sign Up' %}"><button>Sign Up</button></a>
+            <a href="{% url 'Account' %}"><button>Log In</button></a>
+            {% endif %}
+        </div>
     </span>
     {% if user.is_authenticated %}
     <div>
