@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'generator',
     'battle',
+    'charsheets',
 ]
 
 MIDDLEWARE = [

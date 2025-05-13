@@ -6,18 +6,18 @@
         <title>Character Sheets</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
     </head>
     <body>
-        <script src="" async defer></script>
-        {% extends "base.html" %}
-        {% block content %}
         <div>
             <h1>Character Sheets</h1>
             <button>Create New Character</button>
             <hr>
         </div>
         <div>
+            {% for sheet in charsheets %}
+                {{ sheet.name }} - {{ sheet.campaign }}
+            {% endfor %}
         </div>
-        {% endblock %}
     </body>
 </html>

@@ -87,6 +87,3 @@ class EditCampaignView(UpdateView):
 class CampaignDetailView(DetailView):
     model = Campaign
     template_name = "campaign_detail.html"
-
-def char_sheets_view(request) :
-    return render(request, 'charsheets.html')
