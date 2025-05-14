@@ -36,3 +36,28 @@ a {
     float: left;
     width: 50%;
   }
+
+input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.charsheet {
+    width: 100%;
+    height: 50px;
+}
+
+form p label {
+    display: block;
+    margin-bottom: 4px;
+}
+form p input,
+form p textarea,
+form p select {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+}

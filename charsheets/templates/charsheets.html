@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+        {% extends "base.html" %}
+        {% block content %}
         <div>
             <h1>Character Sheets</h1>
             <a href="{% url 'Create New Character' %}"><button>Create New Character</button></a>
@@ -16,10 +18,11 @@
         </div>
         <div>
             {% for sheet in charsheets %}
-                <h2>{{ sheet.name }}</h2>
+                <h2><a href="{% url 'Character Sheet' sheet.pk %}">{{ sheet.name }}</a></h2>
                 <p>{{ sheet.campaign }}</p>
                 <hr>
             {% endfor %}
         </div>
+        {% endblock %}
     </body>
 </html>

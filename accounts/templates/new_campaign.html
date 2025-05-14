@@ -20,8 +20,8 @@
             <p>You're creating a new campaign as a host. To allow others to join, send them the exact name and key. The name is public, and is shown on session reports. The key is private, and ensures that only players can only join when invited</p>
             <form method="post">
                 {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Start Campaign">
+                {{ form.as_p }}
+                <button type="submit" value="Start Campaign">Start Campaign</button>
             </form>
         </div>
         {% endblock %}

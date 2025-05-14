@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Edit Post</title>
+        <title>Individual Character Sheet</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -11,16 +11,19 @@
         {% extends "base.html" %}
         {% block content %}
         <div>
-            <h1>Edit {{ post.title }}</h1>
-            <button onclick="history.back()">Back</button>
+            <h1>{{ charsheet.name }}</h1>
+            <a href="{% url 'Character Sheets' %}"><button>Back</button></a>
             <hr>
         </div>
         <div>
+            <p>Campaign: {{ charsheet.campaign }}</p>
             <form action="" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Update</button>
+                <button type="submit">Update Character</button>
             </form>
+            <hr>
+            <a href="{% url 'Delete Character' object.pk %}"><button>Delete Character</button></a>
         </div>
         {% endblock %}
     </body>

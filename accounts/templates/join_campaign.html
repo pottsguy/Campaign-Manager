@@ -20,7 +20,7 @@
             <p>To join a campaign, you need to know the exact name of the campaign, and the campaign's key. Ask the host to send you those details.</p>
             <form method="post">
                 {% csrf_token %}
-                {{ form }}
+                {{ form.as_p }}
                 <button type="submit" value="Upload">Join Campaign</button>
             </form>
         </div>

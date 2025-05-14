@@ -3,20 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Character Sheets</title>
+        <title>Delete Character</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <script src="" async defer></script>
         {% extends "base.html" %}
         {% block content %}
         <div>
-            <h1>Character Sheets</h1>
-            <button>Create New Character</button>
+            <h1>Delete {{ sheet.name }}</h1>
+            <a href="{% url 'Character Sheets' %}"><button>Back</button></a>
             <hr>
         </div>
         <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to delete {{ sheet.name }} from {{ sheet.campaign }}?</p>
+                <button type="submit">Delete</button>
+            </form>
         </div>
         {% endblock %}
     </body>
