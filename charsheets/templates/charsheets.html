@@ -11,12 +11,14 @@
     <body>
         <div>
             <h1>Character Sheets</h1>
-            <button>Create New Character</button>
+            <a href="{% url 'Create New Character' %}"><button>Create New Character</button></a>
             <hr>
         </div>
         <div>
             {% for sheet in charsheets %}
-                {{ sheet.name }} - {{ sheet.campaign }}
+                <h2>{{ sheet.name }}</h2>
+                <p>{{ sheet.campaign }}</p>
+                <hr>
             {% endfor %}
         </div>
     </body>

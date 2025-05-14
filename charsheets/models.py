@@ -2,10 +2,11 @@ from django.db import models
 from django.db.models import ForeignKey
 from django.contrib.auth.models import User
 from blog.models import Campaign
+from django.urls import reverse
 
 class Charsheet(models.Model):
     name = models.CharField(max_length=50)
-    player = ForeignKey("auth.User", on_delete=models.CASCADE)
+    player = ForeignKey(User, on_delete=models.CASCADE)
     campaign = ForeignKey(Campaign, on_delete=models.CASCADE)
     basic_info = models.TextField(blank=True)
     primary_stats = models.TextField(blank=True)
@@ -19,3 +20,6 @@ class Charsheet(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("Character Sheets")

@@ -19,12 +19,12 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include("django.contrib.auth.urls")),
-    path('account/', include("accounts.urls")),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('accounts/', include("accounts.urls")),
     path('generator/', include("generator.urls")),
     path('battle/', include('battle.urls')),
     path('', include("dice.urls")),
-    path('', include("blog.urls")),
-    path('campaigns/', include("accounts.urls")),
+    path('blog/', include("blog.urls")),
+    # path('campaigns/', include("accounts.urls")),
     path('charsheets/', include("charsheets.urls")),
 ]

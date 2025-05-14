@@ -16,6 +16,9 @@ class SignUpView(CreateView) :
     success_url = reverse_lazy('Home Page')
     template_name = "registration/sign_up.html"
 
+def accounts_page_view(request):
+    return render(request, "login.html")
+
 def CampaignsView(request):
     # Fetch campaigns where the user is either a participant or the host
     campaign_list = Campaign.objects.filter(Q(users=request.user) | Q(host=request.user))
