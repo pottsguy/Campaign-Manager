@@ -12,8 +12,18 @@
         {% block content %}
         <div>
             <h1>Campaign Diary</h1>
-            <a href="{% url 'Upload Session Report' %}"><button>Upload a Session Report</button></a>
-            Filter by Campaign: <select></select>
+            <form method="get">
+                <a href="{% url 'Upload Session Report' %}"><button>Upload a Session Report</button></a>
+                <label>Filter by Campaign: </label>
+                <select name="campaign" onchange="this.form.submit()">
+                    <option value="">All Campaigns</option>
+                    {% for campaign in campaigns %}
+                        <option value="{{ campaign.id }}" {% if campaign.id|stringformat:"s" == selected_campaign %}selected{% endif %}>
+                            {{ campaign.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
             <hr>
         </div>
         {% for post in post_list %}

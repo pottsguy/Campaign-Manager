@@ -18,6 +18,23 @@ class CampaignDiaryView(ListView):
     template_name = "campaign_diary.html"
     ordering = ['-date']
 
+    # this part is recent - delete to reset to stable state START
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        campaign_id = self.request.GET.get('campaign')
+        if campaign_id:
+            queryset = queryset.filter(campaign__id=campaign_id)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['campaigns'] = Campaign.objects.filter(
+            Q(users=self.request.user) | Q(host=self.request.user)
+        ).distinct()
+        context['selected_campaign'] = self.request.GET.get('campaign', '')
+        return context
+    # this part is recent - delete to reset to stable state END
+
 # def campaign_diary_view(request):
 #     posts = Post.objects.all()
 #     return render(request, "blog/campaign_diary.html", {'posts': posts})
