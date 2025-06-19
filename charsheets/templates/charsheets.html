@@ -14,10 +14,25 @@
         <div>
             <h1>Character Sheets</h1>
             <a href="{% url 'Create New Character' %}"><button>Create New Character</button></a>
+            <form method="get">
+                <label>Filter by Campaign: </label>
+                <select name="campaign" onchange="this.form.submit()">
+                    <option value="">All Campaigns</option>
+                    {% for campaign in campaigns %}
+                        <option value="{{ campaign.id }}" {% if campaign.id|stringformat:"s" == selected_campaign %}selected{% endif %}>
+                            {{ campaign.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
             <hr>
         </div>
         <div>
-            {% for sheet in charsheets %}
+            <p>You must be part of a campaign to make a character. Click on a character name and have that sheet open during play. Click the 'Update Character' button at the bottom to save the changes.</p>
+            <hr>
+        </div>
+        <div>
+            {% for sheet in charsheet_list %}
                 <h2><a href="{% url 'Character Sheet' sheet.pk %}">{{ sheet.name }}</a></h2>
                 <p>{{ sheet.campaign }}</p>
                 <hr>

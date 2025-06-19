@@ -13,4 +13,7 @@ class JoinCampaignForm(forms.Form):
 class EditCampaignForm(forms.ModelForm):
     class Meta:
         model = Campaign
-        fields = ['name', 'system', 'premise', 'key', 'host']
+        fields = ['name', 'system', 'premise', 'key']
+
+class LeaveCampaignForm(forms.Form):
+    confirm = forms.BooleanField(label="leave", required=False)

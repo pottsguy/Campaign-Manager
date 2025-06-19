@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import ForeignKey
 from django.contrib.auth.models import User
-from blog.models import Campaign
+from accounts.models import Campaign
 from django.urls import reverse
 
 class Charsheet(models.Model):

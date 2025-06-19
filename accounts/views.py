@@ -1,26 +1,22 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormView
 from django.views.generic import DetailView
-from blog.models import Campaign
-from .forms import NewCampaignForm, JoinCampaignForm, EditCampaignForm
+from .models import Campaign
+from .forms import NewCampaignForm, JoinCampaignForm, EditCampaignForm, LeaveCampaignForm
 from django.http import Http404, HttpResponseRedirect
-from django.views import View
-from django.shortcuts import get_object_or_404
 from django.db.models import Q
-from django import forms
 
 class SignUpView(CreateView) :
     form_class = UserCreationForm
     success_url = reverse_lazy('Home Page')
-    template_name = "registration/sign_up.html"
+    template_name = "sign_up.html"
 
 def accounts_page_view(request):
     return render(request, "login.html")
 
-def CampaignsView(request):
-    # Fetch campaigns where the user is either a participant or the host
+def campaigns_view(request):
     campaign_list = Campaign.objects.filter(Q(users=request.user) | Q(host=request.user))
     return render(request, 'campaigns.html', {'campaign_list': campaign_list})
 
@@ -30,20 +26,13 @@ class CreateCampaignView(CreateView):
     template_name = 'new_campaign.html'
     success_url = reverse_lazy('Campaigns')
     def form_valid(self, form):
-        # Set the host to the currently logged-in user
         form.instance.host = self.request.user
         return super().form_valid(form)
-
-class DeleteCampaignView(DeleteView):
-    model = Campaign
-    template_name = "delete_campaign.html"
-    success_url = reverse_lazy("Campaigns")
-
+    
 class JoinCampaignView(FormView):
     form_class = JoinCampaignForm
     template_name = 'join_campaign.html'
     success_url = reverse_lazy('Campaigns')
-
     def form_valid(self, form):
         campaign_name = form.cleaned_data.get('name')
         campaign_key = form.cleaned_data.get('key')
@@ -54,8 +43,23 @@ class JoinCampaignView(FormView):
         campaign.users.add(self.request.user)
         return redirect(self.success_url)
 
-class LeaveCampaignForm(forms.Form):
-    confirm = forms.BooleanField(label="leave", required=False)
+class CampaignDetailView(DetailView):
+    model = Campaign
+    template_name = "campaign_detail.html"
+
+class EditCampaignView(UpdateView):
+    model = Campaign
+    form_class = EditCampaignForm
+    template_name = 'edit_campaign.html'
+    success_url = reverse_lazy('Campaigns')
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.host != self.request.user:
+            raise Http404("You are not the host of this campaign.")
+        return obj
+    def form_valid(self, form):
+        form.instance.host = self.get_object().host
+        return super().form_valid(form)
 
 class LeaveCampaignView(FormView):
     template_name = "leave_campaign.html"
@@ -70,23 +74,8 @@ class LeaveCampaignView(FormView):
         if self.request.user in campaign.users.all():
             campaign.users.remove(self.request.user)
         return HttpResponseRedirect(self.success_url)
-    
-class EditCampaignView(UpdateView):
+
+class DeleteCampaignView(DeleteView):
     model = Campaign
-    form_class = EditCampaignForm
-    template_name = 'edit_campaign.html'
-    success_url = reverse_lazy('Campaigns')
-    
-    def get_object(self, queryset=None):
-        obj = super().get_object(queryset)
-        if obj.host != self.request.user:
-            raise Http404("You are not the host of this campaign.")
-        return obj
-    def form_valid(self, form):
-        # Ensure the host remains the same
-        form.instance.host = self.get_object().host
-        return super().form_valid(form)
-    
-class CampaignDetailView(DetailView):
-    model = Campaign
-    template_name = "campaign_detail.html"
+    template_name = "delete_campaign.html"
+    success_url = reverse_lazy("Campaigns")
